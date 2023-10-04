@@ -3,9 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formula 1</title>
+    <title>Formula 1</title> 
+    <link href="formulastyle.css" rel="stylesheet" media="all"> 
+
+    <!--leaflet--> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/> 
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
+    <header>
+         <h1>Formula 1: Historical stats</h1> 
+        
+    </header>   
     
+    <nav> 
+        <ul>
+            <li><a href="#scrollSection">Winners</a></li> 
+            <li><a href="#lapStats">Lap stats</a></li> 
+            <li><a href="#map">European races 24</a></li>
+        </ul>
+    <section id="introduction">   
+        <h2>Introduksjon av Formel 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </section>
+    
+    </nav>  
+    <section class="scrollContainer" id="scrollSection">
+        <div id="scrollTitle">
+            <h2>The kings of the Formula 1</h2> 
+        </div>  
+        <article class="scrollArticle" id="winner1"> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/2014_DTM_HockenheimringII_Lewis_Hamilton_by_2eight_8SC3812.jpg/640px-2014_DTM_HockenheimringII_Lewis_Hamilton_by_2eight_8SC3812.jpg" alt="Lewis Hamilton">  
+            <h3>Vinner 1</h3> 
+            <p>ore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p> 
+        </article> 
+        <article class="scrollArticle" id="winner2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/2014_DTM_HockenheimringII_Lewis_Hamilton_by_2eight_8SC3812.jpg/640px-2014_DTM_HockenheimringII_Lewis_Hamilton_by_2eight_8SC3812.jpg" alt="Lewis Hamilton"> 
+            <h3>Vinner 2</h3>  
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        </article> 
+        <article class="scrollArticle" id="winner3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/2014_DTM_HockenheimringII_Lewis_Hamilton_by_2eight_8SC3812.jpg/640px-2014_DTM_HockenheimringII_Lewis_Hamilton_by_2eight_8SC3812.jpg" alt="Lewis Hamilton"> 
+            <h3>Vinner 3</h3> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p> 
+        </article>  
+        <div id="scrollStats">
+            <h3>Statistikk Vinnere</h3> 
+            <p>(placeholder)</p>
+        </div>
+        
+    </section>   
+    <section id="lapStats">
+        <h2>Statistikk over rundetider</h2> 
+        <p>(placeholder)</p>
+    </section> 
+    <section id="mapSection">
+        <h2>Europeiske Løp 2024</h2>  
+        <div id="buttons"></div>
+        <div id="map"></div> 
+        
+    </section>
+    <script>
+       
+       //kart, kode fra forelesningsmateriell
+        const centerLat = 44.3606148
+        const centerLong = 11.6263144
+       //steder 
+       const places = [
+            {name: "Imola", dates: "17-19. mai", lat: 44.3606148, long: 11.6263144},
+            {name: "Monaco", dates: "24-26. mai",lat: 43.737906, long: 7.3847387},
+            {name: "Barcelona", dates: "21.23. juni",lat: 41.3927147, long: 1.8112275},
+            {name: "Spielberg", dates: "28-30. juni",lat: 47.2177972, long: 14.7012058},
+            {name: "Silverstone", dates: "5-7. juli",lat: 52.0902585, long: -1.0733072},
+            {name: "Budapest", dates: "19-21. juli",lat: 47.4802597, long: 18.4722908}, 
+            {name: "Spa", dates: "26-28. juli",lat: 50.4729405, long: 5.8735393},
+        ]
+       
+        let map = L.map('map', {
+            center: [centerLat, centerLong],
+            zoom: 5
+        })
+
+        
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        
+
+        const carIcon = L.icon({
+            iconUrl: 'f1car.svg',
+            iconSize: [50,50],
+            iconAnchor: [20,20],
+            popupAnchor: [0, -20]
+        })
+        
+        let navHTML = ""
+     
+        places.map((place) => {
+            
+            L.marker([place.lat, place.long], {icon: carIcon}).addTo(map).bindPopup(`${place.name} har løp ${place.dates}`)
+            
+            navHTML += `<button onclick="map.flyTo([${place.lat},${place.long}],15)">${place.name}</button>`
+        })
+        
+        document.getElementById("buttons").innerHTML = navHTML 
+
+
+        //bytte bakgrunnsbilde, kode fra forelesningsmateriell
+        function isInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+                );
+            } 
+
+            document.addEventListener('scroll', function () {
+                if (isInViewport(document.getElementById("winner1"))){
+                    document.getElementById("scrollSection").style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mercedes_F1_car_07.jpg/640px-Mercedes_F1_car_07.jpg)"
+                } 
+                if(isInViewport(document.getElementById("winner2"))) {
+                    document.getElementById("scrollSection").style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sebastien_Buemi_demonstrating_the_Red_Bull_Energy_Formula_one_car_in_Motomachi_Yokohama_Japan.jpg/640px-Sebastien_Buemi_demonstrating_the_Red_Bull_Energy_Formula_one_car_in_Motomachi_Yokohama_Japan.jpg)"
+                } 
+                if(isInViewport(document.getElementById("winner3"))) {
+                    document.getElementById("scrollSection").style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/2020_Formula_One_tests_Barcelona%2C_Williams_FW43%2C_Russell.jpg/640px-2020_Formula_One_tests_Barcelona%2C_Williams_FW43%2C_Russell.jpg)"
+                }
+
+            }, {
+                passive: true
+            });
+    </script>
 </body>
 </html>
