@@ -59,36 +59,9 @@
 
        
         <div id="scrollStats">
-            <h3>Statistikk Vinnere</h3> 
-            <p>(placeholder)</p>
-            <div>
-                <canvas id="myChart"></canvas>
-              </div>
-              
-              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-              
-              <script>
-                const ctx = document.getElementById('myChart');
-              
-                new Chart(ctx, {
-                  type: 'bar',
-                  data: {
-                    labels: ['Hamilton', 'Schumacher', 'Vettel'],
-                    datasets: [{
-                      label: 'Antall seiere',
-                      data: [103, 91, 53],
-                      borderWidth: 1
-                    }]
-                  },
-                  options: {
-                    scales: {
-                      y: {
-                        beginAtZero: true
-                      }
-                    }
-                  }
-                });
-              </script>
+            <h3>Statistikk over vinnere</h3> 
+            <canvas id="myChart"></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </div>
         
     </section>   
@@ -103,6 +76,7 @@
         
     </section>
     <script>
+
        
        //kart, kode fra forelesningsmateriell
         const centerLat = 44.3606148
@@ -176,7 +150,29 @@
 
             }, {
                 passive: true
-            });
+            }); 
+
+
+            //statistikk, kode hentet fra https://www.chartjs.org/docs/latest/getting-started/
+            const ctx = document.getElementById('myChart');
+              new Chart(ctx, {
+                type: 'bar',
+                data: {
+                  labels: ['Hamilton', 'Schumacher', 'Vettel'],
+                  datasets: [{
+                    label: 'Antall seiere',
+                    data: [103, 91, 53],
+                    borderWidth: 1
+                  }]
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
     </script>
 </body>
 </html>
