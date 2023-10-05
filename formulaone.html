@@ -53,9 +53,39 @@
             <p>Født 1987, fra Tyskland. Vettel er den yngste verdensmesteren noensinne, fire år på rad. Første gang da han var 23. Han debuterte med racerbil som 7-åring. </p> 
             <!--KILDE: https://www.formula1.com/en/drivers/hall-of-fame/Sebastian_Vettel.html -->
         </article>  
+
+       
         <div id="scrollStats">
             <h3>Statistikk Vinnere</h3> 
             <p>(placeholder)</p>
+            <div>
+                <canvas id="myChart"></canvas>
+              </div>
+              
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              
+              <script>
+                const ctx = document.getElementById('myChart');
+              
+                new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: ['Hamilton', 'Schumacher', 'Vettel'],
+                    datasets: [{
+                      label: 'Antall seiere',
+                      data: [103, 91, 53],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                });
+              </script>
         </div>
         
     </section>   
