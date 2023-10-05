@@ -85,8 +85,9 @@ li a:hover {
     transition: background-image 2s;
 } 
 
-.pokal {
+.scrollArticle > img.pokal {
     width: auto;
+    margin: auto;
 }
 
 .scrollArticle {
