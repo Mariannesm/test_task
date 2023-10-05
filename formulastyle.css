@@ -213,7 +213,7 @@ button:hover{
     .scrollArticle {
       max-width: 50vw;
     }  
-    #introduction, #lapStats, #scrollStats{
+    #introduction, #lapStats{
         max-width: 450px;
     }
     
@@ -223,7 +223,7 @@ button:hover{
     .scrollArticle {
       max-width: 80vw;
     } 
-    #introduction, #lapStats, #scrollStats{
+    #introduction, #lapStats{
         max-width: 300px;
     }
   }
