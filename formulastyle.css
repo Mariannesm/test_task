@@ -85,6 +85,10 @@ li a:hover {
     transition: background-image 2s;
 } 
 
+.pokal {
+    width: auto;
+}
+
 .scrollArticle {
     margin: 40vh auto;  
     width: 100%;
@@ -139,17 +143,13 @@ li a:hover {
     width: 100%; 
     max-width: 550px; 
     margin: 10vh auto;
-    padding:7rem 3rem; 
+    padding:10rem 3rem; 
     text-align: center; 
     background: rgba(13, 27, 42, 0.9);  
     color: #E0E1DD; 
     box-shadow: 0 3px 10px #0D1B2A; 
     border-radius: 4px;
-}   
-
-#scrollStats h3{
-    font-size: 1.5rem;
-}
+}  
 
 #lapStats{ 
     width: 100%; 
